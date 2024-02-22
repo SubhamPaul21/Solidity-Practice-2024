@@ -15,9 +15,6 @@ describe("Faucet", function () {
         await faucet.waitForDeployment();
 
         const [owner, addr1] = await hre.ethers.getSigners();
-
-        console.log(`Signer 1 address: ${owner.address}`);
-        console.log(`Signer 2 address: ${addr1.address}`);
         return { faucet, owner, addr1 };
     }
 
@@ -30,8 +27,6 @@ describe("Faucet", function () {
     it("should allow withdrawals lesser or equal to 0.1 ETH", async function () {
         const { faucet } = await loadFixture(deployContractAndSetVariables);
 
-        // Try to withdraw more than 0.1 ETH
-        // require will evaluate to false and revert the transaction
         await expect(faucet.withdraw(parseEther("0.1"))).to.not.be.revertedWith("Cannot withdraw more than 0.1 ETH");
     })
 
