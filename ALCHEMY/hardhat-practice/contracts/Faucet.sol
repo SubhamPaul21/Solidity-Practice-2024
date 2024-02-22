@@ -9,13 +9,13 @@ contract Faucet {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "You are not the owner");
         _;
     }
 
     function withdraw(uint256 _amount) public payable {
         // Users can only withdraw 0.1 ETH at a time
-        require(_amount <= 0.1 ether);
+        require(_amount <= 0.1 ether, "Cannot withdraw more than 0.1 ETH");
         (bool success, ) = payable(msg.sender).call{value: _amount}("");
         require(success, "Failed to send Ether");
     }
