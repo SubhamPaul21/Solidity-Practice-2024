@@ -4,7 +4,7 @@ require("@nomicfoundation/hardhat-toolbox");
 module.exports = {
   solidity: "0.8.24",
   paths: {
-    sources: "./Dead_Man_Switch/contracts",
-    tests: "./Dead_Man_Switch/test",
+    sources: "./Multi_Signature_Wallet/contracts",
+    tests: "./Multi_Signature_Wallet/test",
   },
 };
