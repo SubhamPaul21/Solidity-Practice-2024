@@ -5,7 +5,7 @@ require('dotenv').config();
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.24",
-  defaultNetwork: "sepolia",
+  // defaultNetwork: "sepolia",
   networks: {
     sepolia: {
       url: process.env.ALCHEMY_SEPOLIA_TESTNET_RPC_URL,
@@ -13,6 +13,7 @@ module.exports = {
     }
   },
   paths: {
-    sources: "./ERC721/contracts",
+    sources: "./Voting/contracts",
+    tests: './Voting/tests'
   },
 };
